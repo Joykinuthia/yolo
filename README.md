@@ -1,15 +1,15 @@
-# Overview
-This project involved the containerization and deployment of a full-stack yolo application using Docker.
+Yolo E-Commerce App
 
+This is a fully containerized full-stack e-commerce platform built with MongoDB, Express (Node.js), and React, orchestrated using Docker and Docker Compose.
 
-# Requirements
-Install the docker engine here:
-- [Docker](https://docs.docker.com/engine/install/) 
+Local Set-up
+To run this project locally on your machine follow these steps :
 
-## How to launch the application 
+1. Fork this repository to your GitHub account.
 
+2. Open your terminal.
 
-![Alt text](image.png)
+3. Clone the repository using the SSH URL:
 
-## How to run the app
-Use vagrant up --provison command
+    git clone <your-forked-repo-ssh-url>
+
