@@ -27,19 +27,7 @@ Base Image Selection
 
 The Yolo E-Commerce App uses optimized, secure, and minimal Docker base images to ensure fast builds, small image sizes, and better security.
 
-1. Backend – Node.js Server
-
-Stage           Base-Image                      Rationale
-Build           node:18-alpine                  • Lightweight and secure Node.js image
-                                                • Optimized for faster builds and dependency installation
-                                                • Includes essential build tools for compiling native modules
-                                                • Regularly updated with the latest security patches
-                                                • Ideal for CI/CD and production-ready builds
-
-
-Runtime         alpine:3.18                     • Extremely small image size (~5 MB) for faster
-                                                deployment
-                                                • Minimal packages reduce the attack surface
-                                                • Perfect for lightweight applications and microservices
-                                                • Compatible with multi-stage builds for smaller, cleaner final images
-                                                • Low memory footprint improves performance and scalability
+| Stage   | Base Image      | Rationale |
+|---------|-----------------|-----------|
+| Build   | node:18-alpine  | - Lightweight and secure Node.js image<br>- Optimized for faster builds and dependency installation<br>- Includes essential build tools for compiling native modules<br>- Regularly updated with the latest security patches<br>- Ideal for CI/CD and production-ready builds |
+| Runtime | alpine:3.18     | - Extremely small image size (~5 MB) for faster deployment<br>- Minimal packages reduce the attack surface<br>- Perfect for lightweight applications and microservices<br>- Compatible with multi-stage builds for smaller, cleaner final images<br>- Low memory footprint improves performance and scalability |
