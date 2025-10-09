@@ -27,7 +27,16 @@ Base Image Selection
 
 The Yolo E-Commerce App uses optimized, secure, and minimal Docker base images to ensure fast builds, small image sizes, and better security.
 
+1. Backend – Node.js Server
+
 | Stage   | Base Image      | Rationale |
 |---------|-----------------|-----------|
 | Build   | node:18-alpine  | - Lightweight and secure Node.js image<br>- Optimized for faster builds and dependency installation<br>- Includes essential build tools for compiling native modules<br>- Regularly updated with the latest security patches<br>- Ideal for CI/CD and production-ready builds |
 | Runtime | alpine:3.18     | - Extremely small image size (~5 MB) for faster deployment<br>- Minimal packages reduce the attack surface<br>- Perfect for lightweight applications and microservices<br>- Compatible with multi-stage builds for smaller, cleaner final images<br>- Low memory footprint improves performance and scalability |
+
+2. Frontend – React Application
+
+| Stage   | Base Image      | Rationale |
+|---------|-----------------|-----------|
+| Build   | node:18-alpine  | - Efficiently compiles and bundles the React application<br>- Lightweight image that minimizes build container size<br>- Includes necessary tools for dependency installation and optimization |
+| Runtime | nginx:alpine    | - Serves static React files quickly and reliably<br>- Minimal image size ensures faster startup and deployment<br>- Optimized for high performance and low resource consumption |
