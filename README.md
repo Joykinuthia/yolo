@@ -13,3 +13,13 @@ To run this project locally on your machine follow these steps :
 
     git clone <your-forked-repo-ssh-url>
 
+4. Navigate into the project directory:
+
+    cd yolo
+
+5. Open the project in VS Code:
+
+    code .
+
+6. Start writing the code
+
