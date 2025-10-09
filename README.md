@@ -40,3 +40,9 @@ The Yolo E-Commerce App uses optimized, secure, and minimal Docker base images t
 |---------|-----------------|-----------|
 | Build   | node:18-alpine  | - Efficiently compiles and bundles the React application<br>- Lightweight image that minimizes build container size<br>- Includes necessary tools for dependency installation and optimization |
 | Runtime | nginx:alpine    | - Serves static React files quickly and reliably<br>- Minimal image size ensures faster startup and deployment<br>- Optimized for high performance and low resource consumption |
+
+3. Database – MongoDB
+
+| Container   | Base Image | Rationale |
+| ----------- | ---------- | --------- |
+| MongoDB | `mongo:6`  | <ul><li>Official and stable MongoDB image</li><li>Supports volume persistence</li><li>Great for local development</li></ul> |
