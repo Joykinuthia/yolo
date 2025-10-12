@@ -54,27 +54,42 @@ The application uses multi-stage builds to separate build and runtime stages, ke
 
 **Backend – Node.js API (./backend/Dockerfile)**
 
-FROM node:18-alpine AS build
+`FROM` node:18-alpine AS build
 
-WORKDIR /usr/src/app
+`WORKDIR` /usr/src/app
 
-COPY package*.json ./
-RUN npm install
+`COPY` package*.json ./
+`RUN` npm install
 
-COPY . .
+`COPY` . .
 
-FROM alpine:3.18
+`FROM` alpine:3.18
 
-WORKDIR /app
+`WORKDIR` /app
 
-RUN apk add --no-cache nodejs
+`RUN` apk add --no-cache nodejs
 
-COPY --from=build /usr/src/app /app
+`COPY`--from=build /usr/src/app /app
 
-ENV NODE_ENV=production
-ENV PORT=5000
+`ENV` NODE_ENV=production
+`ENV` PORT=5000
 
-EXPOSE 5000
+`EXPOSE` 5000
 
-CMD ["node", "server.js"]
+`CMD` ["node", "server.js"]
+
+
+**Explanation**
+| Directive                       | Description                                           |
+| ------------------------------- | ----------------------------------------------------- |
+| `FROM node:18-alpine AS build`  | Uses a lightweight Node.js image for the build stage. |
+| `WORKDIR /usr/src/app`          | Defines the working directory for the build process.  |
+| `COPY package*.json ./`         | Copies dependency files for caching.                  |
+| `RUN npm install`               | Installs backend dependencies.                        |
+| `COPY . .`                      | Copies all source files.                              |
+| `FROM alpine:3.18`              | Starts a new lightweight runtime stage.               |
+| `RUN apk add --no-cache nodejs` | Installs Node.js in the final image.                  |
+| `COPY --from=build`             | Copies compiled files from the build stage.           |
+| `EXPOSE 5000`                   | Opens port 5000 for API access.                       |
+| `CMD ["node", "server.js"]`     | Starts the backend server.                            |
 
