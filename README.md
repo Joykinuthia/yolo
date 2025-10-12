@@ -1,8 +1,8 @@
-**Yolo E-Commerce App**
+## Yolo E-Commerce App
 
 This is a fully containerized full-stack e-commerce platform built with MongoDB, Express (Node.js), and React, orchestrated using Docker and Docker Compose.
 
-**Local Set-up**
+## Local Set-up
 To run this project locally on your machine follow these steps :
 
 1. Fork this repository to your GitHub account.
@@ -27,21 +27,21 @@ To run this project locally on your machine follow these steps :
 
 The Yolo E-Commerce App uses optimized, secure, and minimal Docker base images to ensure fast builds, small image sizes, and better security.
 
-**1. Backend – Node.js Server**
+## 1. Backend – Node.js Server
 
 | Stage   | Base Image      | Rationale |
 |---------|-----------------|-----------|
 | Build   | `node:18-alpine`  | - Lightweight and secure Node.js image<br>- Optimized for faster builds and dependency installation<br>- Includes essential build tools for compiling native modules<br>- Regularly updated with the latest security patches<br>- Ideal for CI/CD and production-ready builds |
 | Runtime | `alpine:3.18`     | - Extremely small image size (~5 MB) for faster deployment<br>- Minimal packages reduce the attack surface<br>- Perfect for lightweight applications and microservices<br>- Compatible with multi-stage builds for smaller, cleaner final images<br>- Low memory footprint improves performance and scalability |
 
-**2. Frontend – React Application**
+## 2. Frontend – React Application
 
 | Stage   | Base Image      | Rationale |
 |---------|-----------------|-----------|
 | Build   | `node:18-alpine`  | - Efficiently compiles and bundles the React application<br>- Lightweight image that minimizes build container size<br>- Includes necessary tools for dependency installation and optimization |
 | Runtime | `nginx:alpine`    | - Serves static React files quickly and reliably<br>- Minimal image size ensures faster startup and deployment<br>- Optimized for high performance and low resource consumption |
 
-**3. Database – MongoDB**
+## 3. Database – MongoDB
 
 | Container   | Base Image | Rationale |
 | ----------- | ---------- | --------- |
@@ -52,7 +52,7 @@ The Yolo E-Commerce App uses optimized, secure, and minimal Docker base images t
 
 The application uses multi-stage builds to separate build and runtime stages, keeping the final image small, fast, and secure.
 
-**Backend – Node.js API (./backend/Dockerfile)**
+## Backend – Node.js API (./backend/Dockerfile)
 
 `FROM` node:18-alpine AS build
 
@@ -94,7 +94,7 @@ The application uses multi-stage builds to separate build and runtime stages, ke
 | `CMD ["node", "server.js"]`     | Starts the backend server.                            |
 
 
-**Frontend – React App (./client/Dockerfile)**
+## Frontend – React App (./client/Dockerfile)
 
 `FROM` node:18-alpine AS build
 
@@ -179,3 +179,56 @@ services:
 volumes:
   mongo-data:
 ```
+
+## Git Workflow Summary
+The following outlines the step-by-step Git workflow adopted throughout the project:
+
+1. Removed the initial Dockerfiles and docker-compose setup to start afresh.
+
+2. Created a new Dockerfile for the backend service based on the `node:18-alpine image`.
+
+3. Added a multi-stage Dockerfile for the frontend service to optimize build efficiency and image size.
+
+4. Developed a docker-compose.yaml file defining services for MongoDB, backend, and frontend.
+
+5. Built and pushed both backend and frontend images to DockerHub, tagging them with version numbers.
+
+6. Updated the README.md file to reflect current configurations and deployment details.
+
+7. Provided explanations and justifications for the selected base images used in each service.
+
+8. Documented key Dockerfile directives for better maintainability and understanding.
+
+9. Explained the networking configuration implemented in Docker Compose.
+
+10. Described the Docker volumes setup and how data persistence was achieved.
+
+11. Initialized a new Vagrantfile for environment provisioning.
+
+12. Created a basic Ansible inventory and playbook.yml to automate setup tasks.
+
+13. Added a variables file to define container parameters and network configurations.
+
+14. Implemented a common role in Ansible to install Docker and configure network settings.
+
+15. Created a MongoDB role to deploy the database container with a persistent volume.
+
+16. Added a backend role for deploying the Node.js API container.
+
+17. Included a frontend role to launch the React application container.
+
+18. Updated the Vagrantfile with improved configurations and error corrections.
+
+19. Established a manifest directory and added the yolo-frontend deployment file.
+
+20. Defined a frontend service to enable browser-based access.
+
+21. Added a backend deployment manifest for internal API operations.
+
+22. Configured a backend service for inter-container communication.
+
+23. Developed a MongoDB StatefulSet manifest for database management.
+
+24. Configured a MongoDB service to facilitate connectivity between components.
+
+25. Fixed all the errors and updated the README.md with final instructions and deployment details.
