@@ -112,3 +112,17 @@ The application uses multi-stage builds to separate build and runtime stages, ke
 `COPY` --from=build /app/build /usr/share/nginx/html
 `EXPOSE` 80
 `CMD` ["nginx", "-g", "daemon off;"]
+
+**Explanation**
+
+| Directive                                    | Description                                     |
+| -------------------------------------------- | ----------------------------------------------- |
+| `FROM node:18-alpine AS build`               | Uses Node.js to build the React app.            |
+| `WORKDIR /app`                               | Sets the working directory.                     |
+| `ENV NODE_OPTIONS=--openssl-legacy-provider` | Fixes OpenSSL compatibility issue with Webpack. |
+| `RUN npm install`                            | Installs React dependencies.                    |
+| `RUN npm run build`                          | Builds the production-ready app.                |
+| `FROM nginx:alpine`                          | Uses NGINX to serve the static files.           |
+| `COPY --from=build`                          | Copies built React files to NGINX.              |
+| `EXPOSE 80`                                  | Exposes NGINX’s default port.                   |
+| `CMD ["nginx", "-g", "daemon off;"]`         | Runs NGINX in the foreground.                   |
