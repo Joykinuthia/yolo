@@ -128,17 +128,21 @@ The application uses multi-stage builds to separate build and runtime stages, ke
 | `CMD ["nginx", "-g", "daemon off;"]`         | Runs NGINX in the foreground.                   |
 
 
-**Network Configuration**
+
 
 The system uses a custom bridge network for internal communication between services.
 This allows containers to reference each other by name while keeping them isolated from the host environment.
 
-`networks`:
-  `yolo-network`:
-    `driver`: bridge
 
-**Explanation**
+## Network Configuration
 
+```yaml
+networks:
+  yolo-network:
+    driver: bridge
+```
+
+## Explanation
 | Key            | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | `yolo-network` | User-defined bridge network connecting all services.   |
