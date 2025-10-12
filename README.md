@@ -126,3 +126,21 @@ The application uses multi-stage builds to separate build and runtime stages, ke
 | `COPY --from=build`                          | Copies built React files to NGINX.              |
 | `EXPOSE 80`                                  | Exposes NGINX’s default port.                   |
 | `CMD ["nginx", "-g", "daemon off;"]`         | Runs NGINX in the foreground.                   |
+
+
+**Network Configuration**
+
+The system uses a custom bridge network for internal communication between services.
+This allows containers to reference each other by name while keeping them isolated from the host environment.
+
+networks:
+  yolo-network:
+    driver: bridge
+
+**Explanation**
+
+| Key            | Description                                            |
+| -------------- | ------------------------------------------------------ |
+| `yolo-network` | User-defined bridge network connecting all services.   |
+| `bridge`       | Default Docker driver for container interconnectivity. |
+
