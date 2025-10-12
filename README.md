@@ -232,3 +232,25 @@ The following outlines the step-by-step Git workflow adopted throughout the proj
 24. Configured a MongoDB service to facilitate connectivity between components.
 
 25. Fixed all the errors and updated the README.md with final instructions and deployment details.
+
+
+## Deployment Overview
+I ensured that: 
+
+**Fully containerized stack using Docker & Compose**
+
+**Deployed and tested in Vagrant with Ansible automation**
+
+**Verified backend and frontend images available on DockerHub**
+
+## Backend Docker Image
+
+`Joykinuthia/yolo-backend:1.0.0`
+
+## Frontend Docker Image
+
+`Joykinuthia/yolo-frontend:1.0.0`
+
+
+## Author: Joyrose Kinuthia
+## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
