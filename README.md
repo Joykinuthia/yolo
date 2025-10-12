@@ -93,3 +93,22 @@ The application uses multi-stage builds to separate build and runtime stages, ke
 | `EXPOSE 5000`                   | Opens port 5000 for API access.                       |
 | `CMD ["node", "server.js"]`     | Starts the backend server.                            |
 
+
+**Frontend – React App (./client/Dockerfile)**
+
+`FROM` node:18-alpine AS build
+
+`WORKDIR` /app
+
+`ENV` NODE_OPTIONS=--openssl-legacy-provider
+
+`COPY` package*.json ./
+`RUN` npm install
+
+`COPY` . .
+`RUN` npm run build
+
+`FROM` nginx:alpine
+`COPY` --from=build /app/build /usr/share/nginx/html
+`EXPOSE` 80
+`CMD` ["nginx", "-g", "daemon off;"]
