@@ -148,3 +148,19 @@ networks:
 | `yolo-network` | User-defined bridge network connecting all services.   |
 | `bridge`       | Default Docker driver for container interconnectivity. |
 
+
+## Network Usage per Service
+```yaml
+services:
+  mongo:
+    networks:
+      - yolo-network
+
+  backend:
+    networks:
+      - yolo-network
+
+  frontend:
+    networks:
+      - yolo-network
+```
