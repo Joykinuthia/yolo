@@ -164,3 +164,18 @@ services:
     networks:
       - yolo-network
 ```
+
+| **Service**  | **Container Port** | **Host Port** | **Purpose**                     |
+| -------- | -------------- | --------- | --------------------------- |
+| MongoDB  | `27017`          | `27017`     | Database access             |
+| Backend  | `5000`           | `5000`      | API server                  |
+| Frontend | `80`             | `3000`      | NGINX serving the React app |
+
+
+## Volume Setup
+**mongo-data:/data/db** stores MongoDB data persistently, ensuring that data remains even after container restarts.
+
+```yaml
+volumes:
+  mongo-data:
+```
