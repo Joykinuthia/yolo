@@ -133,9 +133,9 @@ The application uses multi-stage builds to separate build and runtime stages, ke
 The system uses a custom bridge network for internal communication between services.
 This allows containers to reference each other by name while keeping them isolated from the host environment.
 
-networks:
-  yolo-network:
-    driver: bridge
+`networks`:
+  `yolo-network`:
+    `driver`: bridge
 
 **Explanation**
 
