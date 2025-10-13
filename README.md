@@ -245,11 +245,36 @@ I ensured that:
 
 ## Backend Docker Image
 
-`Joykinuthia/yolo-backend:1.0.0`
+`joyrose/yolo-backend:1.0.0`
+
 
 ## Frontend Docker Image
 
-`Joykinuthia/yolo-frontend:1.0.0`
+`joyrose/yolo-frontend:1.0.0`
+
+Docker Best Practices I Implemented include:
+
+1. Utilized multi-stage builds to optimize and significantly reduce final image size.
+
+2. Applied version tagging to maintain clear version control and traceability of builds.
+
+3. Selected lightweight base images to enhance performance, security, and deployment speed.
+
+4. Published production-ready images to DockerHub for streamlined distribution and reusability.
+
+
+## joyrose/yolo-backend:1.0.0
+
+## joyrose/yolo-frontend:1.0.0
+
+## DockerHub Screenshots
+
+### Backend Image
+![Backend Docker Image](./screenshots/dockerhub-backend.png)
+
+### Frontend Image
+![Frontend Docker Image](./screenshots/dockerhub-frontend.png)
+
 
 
 ## Author: Joyrose Kinuthia
