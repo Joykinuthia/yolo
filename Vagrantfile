@@ -13,3 +13,13 @@ Vagrant.configure("2") do |config|
     vb.memory = "2048"
     vb.cpus = 2
   end
+
+  # Ansible provisioning
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+    ansible.inventory_path = "hosts"
+    ansible.become = true
+    ansible.verbose = "vv"
+    ansible.compatibility_mode = "2.0"
+  end
+end
