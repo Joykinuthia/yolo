@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "geerlingguy/ubuntu2004"
   config.vm.hostname = "yolo-dev"
 
-  # Forward port 3000
+  # Forward port 3000 for web application access
   config.vm.network "forwarded_port", guest: 3000, host: 3000
 
   # VirtualBox settings
