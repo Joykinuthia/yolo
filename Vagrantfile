@@ -7,3 +7,9 @@ Vagrant.configure("2") do |config|
 
   # Forward port 3000
   config.vm.network "forwarded_port", guest: 3000, host: 3000
+
+  # VirtualBox settings
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.cpus = 2
+  end
