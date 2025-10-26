@@ -377,5 +377,28 @@ The automation relies on a combination of:
 `roles/` - Contains modular Ansible roles (`common, mongo, backend, frontend`), each with its own `tasks/main.yml`.
 
 All configurations are reusable, making the setup scalable and easy to maintain.
+
+## Part of the Folder Structure
+
+yolo/
+├── Vagrantfile
+├── ansible.cfg
+├── inventory.yml
+├── playbook.yml
+├── vars/
+│   └── main.yml
+├── roles/
+│   ├── common/
+│   │   └── tasks/main.yml
+│   ├── mongo/
+│   │   └── tasks/main.yml
+│   ├── backend/
+│   │   └── tasks/main.yml
+│   └── frontend/
+│       └── tasks/main.yml
+└── README.md
+
+
+
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
