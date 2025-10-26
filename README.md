@@ -363,5 +363,19 @@ Each role is triggered in sequence through the `playbook.yml` file, ensuring smo
 
 - Connects to the same `yolo-network` for backend communication.
 
+
+## How Ansible Automation Works
+
+The automation relies on a combination of:
+
+`Vagrantfile` - Defines the base Ubuntu VM and triggers Ansible provisioning.
+
+`playbook.yml` -  Controls the flow of execution and loads all roles.
+
+`vars/main.yml` - Stores configurable variables like image names, ports, and directories.
+
+`roles/` - Contains modular Ansible roles (`common, mongo, backend, frontend`), each with its own `tasks/main.yml`.
+
+All configurations are reusable, making the setup scalable and easy to maintain.
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
