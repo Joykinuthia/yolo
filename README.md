@@ -384,18 +384,17 @@ All configurations are reusable, making the setup scalable and easy to maintain.
 YOLO/
 ├── Vagrantfile
 ├── ansible.cfg
-├── inventory.yml
 ├── playbook.yml
 ├── vars/
 │   └── main.yml
 ├── roles/
-│   ├── common/
-│   │   └── tasks/main.yml
-│   ├── mongo/
-│   │   └── tasks/main.yml
 │   ├── backend/
 │   │   └── tasks/main.yml
-│   └── frontend/
+│   ├── common/
+│   │   └── tasks/main.yml
+│   ├── frontend/
+│   │   └── tasks/main.yml
+│   └── mongo/
 │       └── tasks/main.yml
 └── README.md
 ```
