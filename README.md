@@ -276,6 +276,22 @@ Docker Best Practices I Implemented include:
 ![Frontend Docker Image](./screenshots/dockerhub-frontend.png)
 
 
+## UTILIZATION OF ANSIBLE AUTOMATION IN THE YOLO E-COMMERCE PROJECT
+
+## Project Overview
+This project automates the deployment of a containerized YOLO E-Commerce web application using a fully scripted Infrastructure as Code (IaC) approach.
+
+The setup combines:
+
+**Vagrant** - to provision a virtual machine (VM) as the deployment environment.
+
+**Ansible** - to automatically install dependencies and configure the application stack.
+
+**Docker** - to containerize and run all the application services.
+
+With this setup, the entire application can be deployed inside a VM using a single command:
+
+`vagrant up`
 
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
