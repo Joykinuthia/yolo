@@ -1,0 +1,31 @@
+- name: Configure base dependencies
+  apt:
+    name:
+      - git
+      - docker.io
+    update_cache: yes
+    state: present
+
+- name: Setup Docker Compose tool
+  get_url:
+    url: https://github.com/docker/compose/releases/download/v2.24.1/docker-compose-linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: '0755'
+
+- name: Initialize Docker daemon
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Configure application network
+  docker_network:
+    name: "{{ network_name }}"
+    driver: bridge
+
+- name: Clone application repo to Retrieve application source code
+  git:
+    repo: "{{ repo_url }}"
+    dest: "{{ clone_dir }}"
+    version: master
+    force: yes
