@@ -1,0 +1,10 @@
+- name: Build and run frontend container
+  docker_container:
+    name: frontend-container
+    image: "{{ frontend_image }}"
+    state: started
+    restart_policy: always
+    ports:
+      - "3000:80"
+    networks:
+      - name: "{{ network_name }}"
