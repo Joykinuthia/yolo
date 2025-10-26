@@ -378,8 +378,9 @@ The automation relies on a combination of:
 
 All configurations are reusable, making the setup scalable and easy to maintain.
 
-## Part of the Folder Structure
+## Part of the folder structure
 
+```
 yolo/
 ├── Vagrantfile
 ├── ansible.cfg
@@ -397,8 +398,7 @@ yolo/
 │   └── frontend/
 │       └── tasks/main.yml
 └── README.md
-
-
+```
 
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
