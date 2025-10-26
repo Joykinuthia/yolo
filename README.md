@@ -343,14 +343,25 @@ Each role is triggered in sequence through the `playbook.yml` file, ensuring smo
 
 **Major Tasks**
 
-Pulls the backend image:
-`joyrose/yolo-backend:1.0.0`
+- Pulls the backend image: `joyrose/yolo-backend:1.0.0`.
 
-Creates a container named `backend-container`.
+- Creates a container named `backend-container`.
 
-Exposes port **5000** for API access.
+- Exposes port **5000** for API access.
 
-Links to the MongoDB container through the `yolo-network`.
+- Links to the MongoDB container through the `yolo-network`.
+
+## 4. Frontend Role - Deploys the user-facing React application.
+
+**Major Tasks**
+
+- Pulls the frontend image: `joyrose/yolo-frontend:1.0.0`.
+
+- Creates a container named `frontend-container`.
+
+- Maps internal port **80** to host port **3000** (so the app is accessible via `http://localhost:3000`).
+
+- Connects to the same `yolo-network` for backend communication.
 
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
