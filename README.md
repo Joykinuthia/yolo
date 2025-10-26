@@ -399,5 +399,16 @@ YOLO/
 └── README.md
 ```
 
+## The Reasoning Behind this Design
+
+**Modularity** - Each role focuses on a single component, improving clarity and reusability.
+
+**Declarative Infrastructure** - Every environment can be replicated consistently with one command.
+
+**Ease of Maintenance** - Variables (like ports, image tags, and paths) are centralized in one file.
+
+**Automation-First Approach** - No manual installation or container management required.
+
+
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
