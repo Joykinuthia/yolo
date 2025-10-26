@@ -307,5 +307,24 @@ The deployment process runs in four main stages:
 **Frontend Role** – Launches the React web interface.
 
 Each role is triggered in sequence through the `playbook.yml` file, ensuring smooth dependency flow between services.
+
+## Each Role Explaination
+## 1. Common Role - Sets up the essential system tools and base configuration for Docker deployment.
+
+**Major Tasks**
+Updates system packages.
+
+Installs git and `docker.io`.
+
+Downloads and installs the latest version of Docker Compose.
+
+Starts and enables the Docker service.
+
+Creates a Docker network (`yolo-network`) to link all containers.
+
+Clones the YOLO application repository from GitHub into `/home/vagrant/yolo-app`.
+
+
+
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
