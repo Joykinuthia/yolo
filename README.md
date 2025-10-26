@@ -381,7 +381,7 @@ All configurations are reusable, making the setup scalable and easy to maintain.
 ## Part of the folder structure
 
 ```
-yolo/
+YOLO/
 ├── Vagrantfile
 ├── ansible.cfg
 ├── inventory.yml
