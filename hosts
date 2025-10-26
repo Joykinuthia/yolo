@@ -1,0 +1,2 @@
+
+127.0.0.1 ansible_user=vagrant ansible_port=2222 ansible_private_key_file=/home/joyrose-kinuthia/development/code/Devops11/yolo/.vagrant/machines/default/virtualbox/private_key
