@@ -339,5 +339,18 @@ Each role is triggered in sequence through the `playbook.yml` file, ensuring smo
 
 - Connects the MongoDB container to the shared Docker network.
 
+## 3. Backend Role - Runs the backend Node.js API that communicates with MongoDB.
+
+**Major Tasks**
+
+Pulls the backend image:
+`joyrose/yolo-backend:1.0.0`
+
+Creates a container named `backend-container`.
+
+Exposes port **5000** for API access.
+
+Links to the MongoDB container through the `yolo-network`.
+
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
