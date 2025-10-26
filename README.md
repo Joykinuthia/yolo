@@ -166,7 +166,7 @@ services:
 ```
 
 | **Service**  | **Container Port** | **Host Port** | **Purpose**                     |
-| -------- | -------------- | --------- | --------------------------- |
+| -------- | -------------- | --------- | ----------------------------- |
 | MongoDB  | `27017`          | `27017`     | Database access             |
 | Backend  | `5000`           | `5000`      | API server                  |
 | Frontend | `80`             | `3000`      | NGINX serving the React app |
@@ -312,19 +312,32 @@ Each role is triggered in sequence through the `playbook.yml` file, ensuring smo
 ## 1. Common Role - Sets up the essential system tools and base configuration for Docker deployment.
 
 **Major Tasks**
-Updates system packages.
 
-Installs git and `docker.io`.
+- Updates system packages.
 
-Downloads and installs the latest version of Docker Compose.
+- Installs git and `docker.io`.
 
-Starts and enables the Docker service.
+- Downloads and installs the latest version of Docker Compose.
 
-Creates a Docker network (`yolo-network`) to link all containers.
+- Starts and enables the Docker service.
 
-Clones the YOLO application repository from GitHub into `/home/vagrant/yolo-app`.
+- Creates a Docker network (`yolo-network`) to link all containers.
 
+- Clones the YOLO application repository from GitHub into `/home/vagrant/yolo-app`.
 
+## 2. MongoDB Role - Deploys the MongoDB database container.
+
+**Major Tasks**
+
+- Pulls the official MongoDB image (`mongo:6`).
+
+- Creates a container named `mongo-db`.
+
+- Exposes port **27017** internally for database communication.
+
+- Mounts a persistent volume `mongo-data` for data storage.
+
+- Connects the MongoDB container to the shared Docker network.
 
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
