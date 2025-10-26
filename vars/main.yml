@@ -1,0 +1,10 @@
+repo_url: https://github.com/Joykinuthia/yolo.git
+clone_dir: /home/vagrant/yolo-app
+network_name: yolo-network
+mongo_volume: mongo-data
+
+backend_image: joyrose/yolo-backend:1.0.0
+frontend_image: joyrose/yolo-frontend:1.0.0
+backend_port: 5000
+frontend_port: 3000
+mongo_port: 27017
