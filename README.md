@@ -293,5 +293,19 @@ With this setup, the entire application can be deployed inside a VM using a sing
 
 `vagrant up`
 
+## Deployment Workflow
+
+The automation follows a modular structure, organized into Ansible roles, each responsible for a specific part of the setup.
+The deployment process runs in four main stages:
+
+**Common Role** – Prepares the base environment.
+
+**MongoDB Role** – Sets up the database container.
+
+**Backend Role** – Deploys the Node.js API service.
+
+**Frontend Role** – Launches the React web interface.
+
+Each role is triggered in sequence through the `playbook.yml` file, ensuring smooth dependency flow between services.
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
