@@ -17,3 +17,9 @@ spec:
       labels:
         app: yolo
         tier: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: joyrose/yolo-frontend:1.0.0
+          ports:
+            - containerPort: 80
