@@ -6,3 +6,14 @@ metadata:
   labels:
     app: yolo
     tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yolo
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: yolo
+        tier: frontend
