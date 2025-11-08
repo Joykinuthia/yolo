@@ -5,3 +5,15 @@ metadata:
   labels:
     app: yolo
     tier: database
+spec:
+  serviceName: "mongo"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yolo
+      tier: database
+  template:
+    metadata:
+      labels:
+        app: yolo
+        tier: database
