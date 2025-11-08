@@ -28,8 +28,22 @@ spec:
               value: mongodb://mongo-service.default.svc.cluster.local:27017/yolodb
           resources:
             requests:
-              cpu: 200m       
-              memory: 256Mi   
+              cpu: 200m
+              memory: 256Mi
             limits:
-              cpu:    500m      
-              memory: 512Mi 
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 5
