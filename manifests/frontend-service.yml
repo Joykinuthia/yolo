@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: yolo-frontend-service
+  namespace: default
+  labels:
+    app: yolo
+    tier: frontend
