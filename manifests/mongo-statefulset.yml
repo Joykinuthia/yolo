@@ -29,3 +29,8 @@ spec:
   volumeClaimTemplates:
     - metadata:
         name: mongo-persistent-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
