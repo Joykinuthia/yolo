@@ -16,3 +16,7 @@ metadata:
       labels:
         app: yolo
         tier: backend
+    spec:
+      containers:
+        - name: backend
+          image: joyrose/yolo-backend:1.0.0
