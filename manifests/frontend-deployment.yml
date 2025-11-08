@@ -23,3 +23,27 @@ spec:
           image: joyrose/yolo-frontend:1.0.0
           ports:
             - containerPort: 80
+          env:
+            - name: BACKEND_URL
+              value: http://yolo-backend-service.default.svc.cluster.local:5000
+          resources:
+            requests:
+              cpu: 150m
+              memory: 192Mi
+            limits:
+              cpu: 400m
+              memory: 384Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 5
