@@ -6,3 +6,12 @@ metadata:
   labels:
     app: yolo
     tier: backend
+spec:
+  selector:
+    app: yolo
+    tier: backend
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: ClusterIP
