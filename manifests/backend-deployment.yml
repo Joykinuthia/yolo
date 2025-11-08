@@ -5,3 +5,14 @@ metadata:
   labels:
     app: yolo
     tier: backend
+  spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yolo
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: yolo
+        tier: backend
