@@ -6,7 +6,7 @@ metadata:
   labels:
     app: yolo
     tier: backend
-  spec:
+spec:
   replicas: 3
   selector:
     matchLabels:
