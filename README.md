@@ -465,8 +465,11 @@ Before deploying this project, make sure the following requirements are met:
 - Create a manifests folder and add separate files for each component of the application. This modular approach makes it easier to maintain and update the deployment.
 
 `mkdir -p manifests`
+
 `cd manifests`
+
 `touch frontend-deployment.yml backend-deployment.yml mongo-statefulset.yml`
+
 `touch frontend-service.yml backend-service.yml mongo-service.yml`
 
 **Manifest Responsibilities:**
