@@ -478,25 +478,43 @@ Before deploying this project, make sure the following requirements are met:
 | `mongo-statefulset.yml` | `StatefulSet`           | <ul><li>Runs MongoDB with stable network IDs and persistent storage (PVCs).</li><li>Ensures ordered startup and durable volumes per replica.</li></ul> |
 | `mongo-service.yml`         | `Service (Headless)`    | <ul><li>Headless service (ClusterIP: None) to provide stable DNS names for StatefulSet pods.</li><li>Facilitates direct pod-to-pod communication and replica discovery.</li></ul> |
 
+### Manifests folder structure
+
+```text
+manifests/
+├── backend-deployment.yml
+├── frontend-deployment.yml
+├── mongo-statefulset.yml
+├── frontend-service.yml
+├── backend-service.yml
+└── mongo-service.yml
+```
+
 ## 2. Apply Kubernetes Resources
 Deploy the application in the following order to ensure dependencies are available before the dependent services start:
 
 **Step 1: MongoDB**
+
 `kubectl apply -f manifests/mongo-service.yml`
+
 `kubectl apply -f manifests/mongo-statefulset.yml`
 
 - This ensures that MongoDB is available before the backend connects.
 - The StatefulSet provides persistent storage and stable networking.
 
 **Step 2: Backend**
+
 `kubectl apply -f manifests/backend-service.yml`
+
 `kubectl apply -f manifests/backend-deployment.yml`
 
 - The backend deployment connects to MongoDB using the internal ClusterIP service.
 - Three replicas of the backend ensure availability and load balancing.
 
 **Step 3: Frontend**
+
 `kubectl apply -f manifests/frontend-service.yml`
+
 `kubectl apply -f manifests/frontend-deployment.yml`
 
 - The frontend connects to the backend service via its internal ClusterIP.
@@ -532,10 +550,22 @@ Test persistence by deleting the MongoDB pod:
 `kubectl get pods -w`
 Observe that a new pod is automatically created, and the data remains intact.
 
+## 5. Access the Application
 
+Frontend: Open your browser and navigate to the EXTERNAL-IP from kubectl get svc.
+Backend API: Accessible internally via the backend service:
+
+`http://yolo-backend-service:5000`
+
+
+![Kubernetes pods status](images/kubernates%201.png)
+*Figure 1 — Output of `kubectl get pods` showing all pods running.*
+
+![Kubernetes services status](images/kubernates%202.png)
+*Figure 2 — Output of `kubectl get svc` showing services and external IPs.*
 
 
 
 
 ## Author: Joyrose Kinuthia
-## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
+## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant | Kubernates
