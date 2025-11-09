@@ -415,6 +415,20 @@ YOLO/
 
 This repository contains the Kubernetes manifests and deployment setup for the YOLO application. The project leverages Kubernetes orchestration to deploy a frontend, backend, and MongoDB database with proper scaling, persistent storage, and public access.
 
+**Kubernetes Objects Used**
+
+**StatefulSet (MongoDB)**: Ensures a stable network identity and persistent storage for MongoDB, preserving data across pod restarts.
+
+**Deployments (Backend & Frontend)**: Provides automatic scaling, rolling updates, and self-healing for application pods.
+
+**Services**:
+
+**ClusterIP**: Enables internal communication between backend and MongoDB.
+
+**LoadBalancer**: Exposes the frontend publicly to allow access via a web browser.
+
+**PersistentVolumeClaims**: Ensures MongoDB data is stored persistently and securely.
+
 
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
