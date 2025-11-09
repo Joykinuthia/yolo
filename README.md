@@ -416,18 +416,33 @@ YOLO/
 This repository contains the Kubernetes manifests and deployment setup for the YOLO application. The project leverages Kubernetes orchestration to deploy a frontend, backend, and MongoDB database with proper scaling, persistent storage, and public access.
 
 **Kubernetes Objects Used**
+The deployment makes use of the following Kubernetes objects:
 
-**StatefulSet (MongoDB)**: Ensures a stable network identity and persistent storage for MongoDB, preserving data across pod restarts.
+**1. StatefulSet (MongoDB)**:
 
-**Deployments (Backend & Frontend)**: Provides automatic scaling, rolling updates, and self-healing for application pods.
+- Ensures that MongoDB has a stable network identity and persistent storage, so data persists even if the pod is restarted.
 
-**Services**:
+- Provides ordered deployment and scaling, making it ideal for databases that require stable identifiers and volume attachment.
 
-**ClusterIP**: Enables internal communication between backend and MongoDB.
+**2. Deployments (Backend & Frontend)**:
 
-**LoadBalancer**: Exposes the frontend publicly to allow access via a web browser.
+- Automatically manages pod creation, scaling, and updates.
 
-**PersistentVolumeClaims**: Ensures MongoDB data is stored persistently and securely.
+- Supports rolling updates and self-healing to ensure high availability.
+
+- Enables multiple replicas to run simultaneously for load balancing and fault tolerance.
+
+**3. Services**:
+
+**ClusterIP**: Used for internal communication between the backend and MongoDB. Pods can discover and communicate with each other reliably.
+
+**LoadBalancer**: Exposes the frontend service to the internet, allowing users to access the application via a public IP address.
+
+**4. PersistentVolumeClaims (PVCs)**:
+
+- Provides persistent storage for MongoDB, ensuring that data is not lost even if pods are deleted or rescheduled.
+
+- This aligns with best practices for stateful applications running in Kubernetes.
 
 
 ## Author: Joyrose Kinuthia
