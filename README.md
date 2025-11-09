@@ -495,6 +495,17 @@ Deploy the application in the following order to ensure dependencies are availab
 - The backend deployment connects to MongoDB using the internal ClusterIP service.
 - Three replicas of the backend ensure availability and load balancing.
 
+**Step 3: Frontend**
+`kubectl apply -f manifests/frontend-service.yml`
+`kubectl apply -f manifests/frontend-deployment.yml`
+
+- The frontend connects to the backend service via its internal ClusterIP.
+- The LoadBalancer service provides a public IP for accessing the application in a browser.
+
+**Alternatively**: Deploy all resources at once using:
+
+`kubectl apply -f manifests/`
+
 
 
 
