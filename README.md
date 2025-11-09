@@ -456,6 +456,15 @@ Before deploying this project, make sure the following requirements are met:
 3. Familiarity with basic Kubernetes commands such as `kubectl apply`, `kubectl get pods`, and `kubectl get svc`.
 4. Ensure that sufficient cluster resources (CPU, memory, and storage) are available to deploy the StatefulSet and multiple replicas.
 
+## Kubernetes Manifests Setup
+
+1. Organize Manifest Files
+- Create a manifests folder and add separate files for each component of the application. This modular approach makes it easier to maintain and update the deployment.
+
+`mkdir -p manifests`
+`cd manifests`
+`touch frontend-deploy.yml backend-deploy.yml mongo-statefulset.yml`
+`touch frontend-svc.yml backend-svc.yml mongo-svc.yml`
 
 
 ## Author: Joyrose Kinuthia
