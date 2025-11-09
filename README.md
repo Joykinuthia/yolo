@@ -459,7 +459,7 @@ Before deploying this project, make sure the following requirements are met:
 
 ## Kubernetes Manifests Setup
 
-1. Organize Manifest Files
+## 1. Organize Manifest Files
 - Create a manifests folder and add separate files for each component of the application. This modular approach makes it easier to maintain and update the deployment.
 
 `mkdir -p manifests`
@@ -477,6 +477,16 @@ Before deploying this project, make sure the following requirements are met:
 | `backend-service.yml`       | `Service (ClusterIP)`   | <ul><li>Internal-only service for backend communication within the cluster.</li><li>No external exposure; used by frontend and other internal components.</li></ul> |
 | `mongo-statefulset.yml` | `StatefulSet`           | <ul><li>Runs MongoDB with stable network IDs and persistent storage (PVCs).</li><li>Ensures ordered startup and durable volumes per replica.</li></ul> |
 | `mongo-service.yml`         | `Service (Headless)`    | <ul><li>Headless service (ClusterIP: None) to provide stable DNS names for StatefulSet pods.</li><li>Facilitates direct pod-to-pod communication and replica discovery.</li></ul> |
+
+## 2. Apply Kubernetes Resources
+Deploy the application in the following order to ensure dependencies are available before the dependent services start:
+
+**Step 1: MongoDB**
+`kubectl apply -f manifests/mongo-service.yml`
+`kubectl apply -f manifests/mongo-statefulset.yml`
+
+- This ensures that MongoDB is available before the backend connects.
+- The StatefulSet provides persistent storage and stable networking.
 
 
 
