@@ -506,6 +506,23 @@ Deploy the application in the following order to ensure dependencies are availab
 
 `kubectl apply -f manifests/`
 
+## 3. Verify Deployment
+
+After deploying, check the status of the pods:
+
+`kubectl get pods`
+
+Check the services and obtain the public IP of the frontend:
+
+`kubectl get svc`
+
+- The frontend LoadBalancer service will show an **EXTERNAL-IP**. Open this IP in your web browser to access the application.
+- Backend service is accessible internally via:
+
+`http://yolo-backend-service:5000`
+
+
+
 
 
 
