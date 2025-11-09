@@ -488,6 +488,13 @@ Deploy the application in the following order to ensure dependencies are availab
 - This ensures that MongoDB is available before the backend connects.
 - The StatefulSet provides persistent storage and stable networking.
 
+**Step 2: Backend**
+`kubectl apply -f manifests/backend-service.yml`
+`kubectl apply -f manifests/backend-deployment.yml`
+
+- The backend deployment connects to MongoDB using the internal ClusterIP service.
+- Three replicas of the backend ensure availability and load balancing.
+
 
 
 
