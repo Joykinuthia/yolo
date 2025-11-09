@@ -453,6 +453,7 @@ Before deploying this project, make sure the following requirements are met:
 `joyrose/yolo-backend:1.0.0`
 
 `joyrose/yolo-frontend:1.0.0`
+
 3. Familiarity with basic Kubernetes commands such as `kubectl apply`, `kubectl get pods`, and `kubectl get svc`.
 4. Ensure that sufficient cluster resources (CPU, memory, and storage) are available to deploy the StatefulSet and multiple replicas.
 
@@ -463,8 +464,21 @@ Before deploying this project, make sure the following requirements are met:
 
 `mkdir -p manifests`
 `cd manifests`
-`touch frontend-deploy.yml backend-deploy.yml mongo-statefulset.yml`
-`touch frontend-svc.yml backend-svc.yml mongo-svc.yml`
+`touch frontend-deployment.yml backend-deployment.yml mongo-statefulset.yml`
+`touch frontend-service.yml backend-service.yml mongo-service.yml`
+
+**Manifest Responsibilities:**
+
+| File Name               | Kubernetes Object        | Purpose                                                                                              |
+|-------------------------|-------------------------|------------------------------------------------------------------------------------------------------|
+| `frontend-deployment.yml`   | `Deployment`            | <ul><li>Deploys the React frontend application.</li><li>Defines replicas, rolling updates and pod spec.</li></ul> |
+| `frontend-service.yml`      | `Service (LoadBalancer)`| <ul><li>Exposes the frontend publicly via an external IP / cloud load balancer.</li><li>Handles ingress traffic for user access.</li></ul> |
+| `backend-deployment.yml`    | `Deployment`            | <ul><li>Deploys the Node.js backend API.</li><li>Manages scaling, liveness/readiness probes and environment variables.</li></ul> |
+| `backend-service.yml`       | `Service (ClusterIP)`   | <ul><li>Internal-only service for backend communication within the cluster.</li><li>No external exposure; used by frontend and other internal components.</li></ul> |
+| `mongo-statefulset.yml` | `StatefulSet`           | <ul><li>Runs MongoDB with stable network IDs and persistent storage (PVCs).</li><li>Ensures ordered startup and durable volumes per replica.</li></ul> |
+| `mongo-service.yml`         | `Service (Headless)`    | <ul><li>Headless service (ClusterIP: None) to provide stable DNS names for StatefulSet pods.</li><li>Facilitates direct pod-to-pod communication and replica discovery.</li></ul> |
+
+
 
 
 ## Author: Joyrose Kinuthia
