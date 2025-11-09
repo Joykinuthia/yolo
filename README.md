@@ -444,6 +444,19 @@ The deployment makes use of the following Kubernetes objects:
 
 - This aligns with best practices for stateful applications running in Kubernetes.
 
+## Prerequisites
+
+Before deploying this project, make sure the following requirements are met:
+1. A running Kubernetes cluster, preferably on Google Kubernetes Engine (GKE), with `kubectl` configured and connected.
+2. Docker images for the backend and frontend pushed to Docker Hub:
+
+`joyrose/yolo-backend:1.0.0`
+
+`joyrose/yolo-frontend:1.0.0`
+3. Familiarity with basic Kubernetes commands such as `kubectl apply`, `kubectl get pods`, and `kubectl get svc`.
+4. Ensure that sufficient cluster resources (CPU, memory, and storage) are available to deploy the StatefulSet and multiple replicas.
+
+
 
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
