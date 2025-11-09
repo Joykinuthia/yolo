@@ -554,11 +554,13 @@ Test persistence by deleting the MongoDB pod:
 `kubectl delete pod mongo-0`
 
 `kubectl get pods -w`
+
 Observe that a new pod is automatically created, and the data remains intact.
 
 ## 5. Access the Application
 
 Frontend: Open your browser and navigate to the EXTERNAL-IP from kubectl get svc.
+
 Backend API: Accessible internally via the backend service:
 
 `http://yolo-backend-service:5000`
