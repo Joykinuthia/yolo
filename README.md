@@ -552,6 +552,7 @@ MongoDB uses a StatefulSet with PersistentVolumeClaims, ensuring that:
 Test persistence by deleting the MongoDB pod:
 
 `kubectl delete pod mongo-0`
+
 `kubectl get pods -w`
 Observe that a new pod is automatically created, and the data remains intact.
 
