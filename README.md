@@ -409,6 +409,8 @@ YOLO/
 
 **Automation-First Approach** - No manual installation or container management required.
 
+
+
 ## YOLO Application Kubernetes Deployment
 
 **Overview**
