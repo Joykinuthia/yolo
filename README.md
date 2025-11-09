@@ -521,6 +521,17 @@ Check the services and obtain the public IP of the frontend:
 
 `http://yolo-backend-service:5000`
 
+## 4. Persistence
+MongoDB uses a StatefulSet with PersistentVolumeClaims, ensuring that:
+- Database data persists even if pods are restarted or rescheduled.
+- Items added to the application (e.g., shopping cart) are not lost.
+
+Test persistence by deleting the MongoDB pod:
+
+`kubectl delete pod mongo-0`
+`kubectl get pods -w`
+Observe that a new pod is automatically created, and the data remains intact.
+
 
 
 
