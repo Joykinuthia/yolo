@@ -409,6 +409,12 @@ YOLO/
 
 **Automation-First Approach** - No manual installation or container management required.
 
+## YOLO Application Kubernetes Deployment
+
+**Overview**
+
+This repository contains the Kubernetes manifests and deployment setup for the YOLO application. The project leverages Kubernetes orchestration to deploy a frontend, backend, and MongoDB database with proper scaling, persistent storage, and public access.
+
 
 ## Author: Joyrose Kinuthia
 ## Tech Stack: MongoDB | Express | React | Node.js | Docker | NGINX | Ansible | Vagrant
